@@ -12,7 +12,7 @@
 - [ ] chọn bảng chữ cái (Hiragana, Katakana, chữ ghép, chữ Hán, lẫn lộn)
 - [ ] default là hiragana
 - [ ] có nhiều người cùng tham gia được (mỗi người sẽ tự điền tên khi truy cập)
-- [ ] khi bấm start sẽ show ra 1 bảng 10x10 với vị trí chữ ngẫu nhiên
+- [x] khi bấm start sẽ show ra 1 bảng 10x10 với vị trí chữ ngẫu nhiên
 - [ ] khi bấm start sẽ show ra chữ cái đề bài cần đi tìm (Romaji)
 - [ ] mỗi lần bấm chọn chữ cái sẽ delay 2s (tránh bấm liên tục)
 - [ ] người đầu tiên tìm ra chữ cái đúng sẽ end round và tăng 1 điểm 

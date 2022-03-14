@@ -28,4 +28,36 @@ window.addEventListener("DOMContentLoaded", (_) => {
     );
     text.value = "";
   });
+
+  // render table 10 x 10
+  var hiragana = getHiragana();
+  makeTable(15, 15, hiragana)
 });
+
+function makeTable(table_rows, table_columns, data) {
+  var fragment = document.createDocumentFragment();
+  console.log(data[1])
+
+  for (var i = 0; i < table_rows; i++) {
+    var row = document.createElement('tr');
+    fragment.appendChild(row);
+
+    for (var j = 0; j < table_columns; j++) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(i.toString() + ', ' + j.toString() + ', ' + data[1]['kana']));
+      row.appendChild(cell);
+    }
+  }
+
+  var target = document.getElementById('game-table');
+  target.appendChild(fragment);
+}
+
+function getHiragana() {
+  // If you're looking for something quick and dirty just load the data in the head of your HTML document.
+  // don't do this in real life
+  
+  return allHiraganaCharacter;
+}
+
+
