@@ -31,12 +31,13 @@ window.addEventListener("DOMContentLoaded", (_) => {
 
   // render table 10 x 10
   var hiragana = getHiragana();
-  makeTable(15, 15, hiragana)
+  makeTable(11, 11, hiragana)
 });
 
 function makeTable(table_rows, table_columns, data) {
   var fragment = document.createDocumentFragment();
-  console.log(data[1])
+  let ranNums = shuffle(data);
+  // console.log(ranNums.next().value.kana)
 
   for (var i = 0; i < table_rows; i++) {
     var row = document.createElement('tr');
@@ -44,10 +45,25 @@ function makeTable(table_rows, table_columns, data) {
 
     for (var j = 0; j < table_columns; j++) {
       var cell = document.createElement('td');
-      cell.appendChild(document.createTextNode(i.toString() + ', ' + j.toString() + ', ' + data[1]['kana']));
+      let jp_str = '';
+      if (ranNums.next().value) {
+        obj = ranNums.next().value;
+        console.log(obj)
+        kana_str = obj.kana;
+        roumaji_str = obj.roumaji;
+
+        cell.setAttribute('id', jp_str)
+
+        // cell.appendChild(document.createTextNode(i.toString() + ', ' + j.toString() + ', ' + data[1]['kana']));
+        cell.appendChild(document.createTextNode(kana_str));
+      }
+      
       row.appendChild(cell);
     }
   }
+  // data.forEach(item => {
+  //   console.log(item)
+  // });
 
   var target = document.getElementById('game-table');
   target.appendChild(fragment);
@@ -60,4 +76,11 @@ function getHiragana() {
   return allHiraganaCharacter;
 }
 
+function* shuffle(array) {
+  var i = array.length -1;
 
+  while (i--) {
+      yield array.splice(Math.floor(Math.random() * (i+1)), 1)[0];
+  }
+
+}
